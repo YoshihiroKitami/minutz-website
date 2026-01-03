@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Header Scroll Effect
     const header = document.querySelector('header');
-    const logoText = document.querySelector('.logo-text');
+    const logoImg = document.querySelector('.logo-img');
     
     if (header) {
         window.addEventListener('scroll', () => {
