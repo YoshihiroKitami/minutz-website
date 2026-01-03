@@ -1,0 +1,87 @@
+/* Tailwind CSS Configuration via CDN will be handled in HTML head */
+/* Custom Styles that extend Tailwind */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Corporate Modernism Theme Colors */
+    --primary: #0F172A; /* Slate 900 */
+    --primary-foreground: #F8FAFC;
+    --secondary: #14B8A6; /* Teal 500 */
+    --secondary-foreground: #FFFFFF;
+    --accent: #F43F5E; /* Rose 500 */
+    --background: #F8FAFC; /* Slate 50 */
+    --foreground: #0F172A;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    color: var(--foreground);
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.font-english {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Utility classes for animations */
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-enter {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.mobile-menu-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+}

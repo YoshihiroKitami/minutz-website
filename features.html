@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機能一覧 - Minutz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#14B8A6',
+                        accent: '#F43F5E',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans JP', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="container mx-auto px-4 md:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">M</div>
+                <span class="text-xl font-bold tracking-tight text-primary logo-text">Minutz</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="features.html" class="text-sm font-bold text-secondary transition-colors">機能</a>
+                <a href="use-cases.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">導入ケース</a>
+                <a href="pricing.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">料金</a>
+                <a href="cases.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">導入事例</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <button class="text-sm font-medium text-slate-600 hover:text-primary px-4 py-2">ログイン</button>
+                <button class="bg-primary hover:bg-slate-800 text-white text-sm font-medium px-6 py-2.5 rounded-md shadow-lg shadow-primary/20 transition-all">
+                    資料請求・お問い合わせ
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600">
+                <i data-lucide="menu" id="menu-icon"></i>
+                <i data-lucide="x" id="close-icon" class="hidden"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-lg p-4 flex flex-col gap-4">
+            <a href="features.html" class="block py-2 text-slate-600 font-medium">機能</a>
+            <a href="use-cases.html" class="block py-2 text-slate-600 font-medium">導入ケース</a>
+            <a href="pricing.html" class="block py-2 text-slate-600 font-medium">料金</a>
+            <a href="cases.html" class="block py-2 text-slate-600 font-medium">導入事例</a>
+            <div class="flex flex-col gap-3 mt-2 pt-4 border-t border-slate-100">
+                <button class="w-full justify-center border border-slate-200 py-2 rounded-md text-slate-600">ログイン</button>
+                <button class="w-full justify-center bg-primary text-white py-2 rounded-md">資料請求・お問い合わせ</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <div class="bg-slate-50 py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-8 text-center max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                    機能一覧
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Minutzは、B2B企業の多言語コミュニケーションに必要な機能を網羅しています。<br>
+                    シンプルで使いやすいインターフェースに、強力な機能を搭載しました。
+                </p>
+            </div>
+        </div>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white rounded-xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">1対多の同時翻訳</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            1人の発言を、参加者全員がそれぞれの選択した言語で同時に受け取ることができます。従来の1対1翻訳とは異なり、多国籍チームでの会議もスムーズに進行します。
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white rounded-xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="share-2" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">ゲスト招待機能</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            アカウントを持たない外部パートナーや顧客を、URL共有だけで会議に招待可能。ゲストはアプリのインストールやアカウント登録が不要で、すぐに参加できます。
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white rounded-xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="settings" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">業界特化辞書登録</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            企業独自の専門用語、製品名、略語を辞書として登録し、翻訳精度を向上させます。特定技能16分野に対応したプリセット辞書も利用可能です。
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-white rounded-xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="smartphone" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">QRコード参加（会議モード）</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            オフラインの会議や講演会では、QRコードを読み取るだけで参加者のスマホが翻訳レシーバーになります。専用機材は一切不要です。
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="bg-white rounded-xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="mic" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">高精度音声認識</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            最新のAI技術を活用した音声認識エンジンにより、発言内容を正確にテキスト化。方言やアクセントにも強く、クリアな翻訳を実現します。
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="bg-white rounded-xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="lock" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">エンタープライズセキュリティ</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            通信の暗号化はもちろん、IPアドレス制限やSSO（シングルサインオン）にも対応。機密情報を扱うB2B企業でも安心してご利用いただけます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-900 text-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl font-bold">対応言語</h2>
+                        <p class="text-slate-300 leading-relaxed">
+                            英語、中国語、韓国語、ベトナム語、タイ語、インドネシア語など、
+                            ビジネスで主要な100以上の言語に対応しています。
+                            双方向の翻訳が可能で、あらゆる国籍のメンバーとのコミュニケーションをサポートします。
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>日本語</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>English</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>中文 (简体)</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>中文 (繁體)</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>한국어</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>Tiếng Việt</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>ไทย</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>Bahasa Indonesia</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>Français</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>Español</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>Deutsch</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <i data-lucide="globe" class="w-4 h-4 text-secondary"></i>
+                                <span>More...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-full min-h-[300px] bg-slate-800 rounded-2xl p-8 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('images/hero-meeting.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+                        <div class="relative z-10 text-center">
+                            <p class="text-2xl font-bold text-white mb-2">100+ Languages</p>
+                            <p class="text-secondary">Real-time Translation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16">
+        <div class="container mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 text-white">
+                    <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center font-bold text-xl">M</div>
+                    <span class="text-xl font-bold">Minutz</span>
+                </div>
+                <p class="text-sm leading-relaxed text-slate-400">
+                    言葉の壁を、組織の力に。<br>
+                    B2B企業の多言語コミュニケーション課題を解決するAI翻訳プラットフォーム。
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">サービス</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="features.html" class="hover:text-white transition-colors">機能一覧</a></li>
+                    <li><a href="use-cases.html" class="hover:text-white transition-colors">導入ケース</a></li>
+                    <li><a href="pricing.html" class="hover:text-white transition-colors">料金プラン</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">サポート</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">よくある質問</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">お問い合わせ</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">資料ダウンロード</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">会社情報</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">運営会社</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 md:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            © 2026 ObotAI Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
