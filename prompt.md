@@ -90,18 +90,19 @@ tailwind.config = {
 
         <!-- デスクトップナビゲーション -->
         <nav class="hidden md:flex items-center gap-8">
-            <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">トップ</a>
-            <a href="features.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">機能</a>
-            <a href="use-cases.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">導入ケース</a>
-            <a href="pricing.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">料金</a>
-            <a href="cases.html" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">導入事例</a>
+            <a href="index.html" class="text-base font-bold text-slate-800 hover:text-secondary transition-colors">トップ</a>
+            <a href="features.html" class="text-base font-bold text-slate-800 hover:text-secondary transition-colors">機能</a>
+            <a href="use-cases.html" class="text-base font-bold text-slate-800 hover:text-secondary transition-colors">導入ケース</a>
+            <a href="pricing.html" class="text-base font-bold text-slate-800 hover:text-secondary transition-colors">料金</a>
+            <a href="cases.html" class="text-base font-bold text-slate-800 hover:text-secondary transition-colors">導入事例</a>
+            <a href="faq.html" class="text-base font-bold text-slate-800 hover:text-secondary transition-colors">FAQ</a>
         </nav>
 
         <!-- CTAボタン -->
         <div class="hidden md:flex items-center gap-4">
-            <button class="bg-primary hover:bg-slate-800 text-white text-sm font-medium px-6 py-2.5 rounded-md shadow-lg shadow-primary/20 transition-all">
-                お問い合わせ
-            </button>
+            <a href="[お問い合わせURL]" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-slate-800 text-white text-sm font-medium px-6 py-2.5 rounded-md shadow-lg shadow-primary/20 transition-all">
+                資料請求・お問い合わせ
+            </a>
         </div>
 
         <!-- モバイルメニューボタン -->
@@ -118,8 +119,9 @@ tailwind.config = {
         <a href="use-cases.html" class="block py-2 text-slate-600 font-medium">導入ケース</a>
         <a href="pricing.html" class="block py-2 text-slate-600 font-medium">料金</a>
         <a href="cases.html" class="block py-2 text-slate-600 font-medium">導入事例</a>
+        <a href="faq.html" class="block py-2 text-slate-600 font-medium">FAQ</a>
         <div class="flex flex-col gap-3 mt-2 pt-4 border-t border-slate-100">
-            <button class="w-full justify-center bg-primary text-white py-2 rounded-md">お問い合わせ</button>
+            <a href="[お問い合わせURL]" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-primary text-white py-2 rounded-md">資料請求・お問い合わせ</a>
         </div>
     </div>
 </header>
@@ -152,16 +154,16 @@ tailwind.config = {
             <h4 class="text-white font-bold mb-4">サポート</h4>
             <ul class="space-y-2 text-sm">
                 <li><a href="faq.html" class="hover:text-white transition-colors">よくある質問</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">お問い合わせ</a></li>
+                <li><a href="[お問い合わせURL]" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">お問い合わせ</a></li>
             </ul>
         </div>
 
         <div>
             <h4 class="text-white font-bold mb-4">会社情報</h4>
             <ul class="space-y-2 text-sm">
-                <li><a href="#" class="hover:text-white transition-colors">運営会社</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+                <li><a href="[会社概要URL]" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">会社概要</a></li>
+                <li><a href="[プライバシーポリシーURL]" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+                <li><a href="[利用規約URL]" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">サービス利用規約</a></li>
             </ul>
         </div>
     </div>
@@ -178,14 +180,15 @@ tailwind.config = {
 ### index.html（トップページ）
 
 1. **ヒーローセクション**
+   - 背景画像（`background-image`で指定、オーバーレイ付き）
    - キャッチコピー（グラデーションテキスト使用）
    - サブコピー
-   - CTAボタン
+   - CTAボタン（外部リンクの場合は`<a>`タグ使用）
    - メインビジュアル
 
 2. **課題提起セクション**
    - 「こんな課題ありませんか？」形式
-   - 3つの課題カード（アイコン付き）
+   - 3つの課題カード（画像付き、aspect-videoで16:9表示）
 
 3. **ソリューション提示**
    - 課題解決の概要
@@ -197,7 +200,7 @@ tailwind.config = {
 
 5. **CTAセクション**
    - トライアル誘導
-   - お問い合わせボタン
+   - お問い合わせボタン（外部リンク）
 
 ### features.html（機能紹介）
 - 機能の詳細説明
@@ -346,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## デザインパターン
 
-### カードコンポーネント
+### カードコンポーネント（アイコン版）
 
 ```html
 <div class="bg-white rounded-xl border-none shadow-lg hover:shadow-xl transition-shadow duration-300 p-8">
@@ -358,19 +361,33 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 ```
 
+### カードコンポーネント（画像版）
+
+```html
+<div class="bg-white rounded-xl border-none shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+    <div class="w-full aspect-video">
+        <img src="images/[画像ファイル名].jpg" alt="[画像の説明]" class="w-full h-full object-cover">
+    </div>
+    <div class="p-8">
+        <h3 class="text-xl font-bold text-slate-900 mb-3">[タイトル]</h3>
+        <p class="text-slate-600 leading-relaxed">[説明文]</p>
+    </div>
+</div>
+```
+
 ### CTAボタン
 
 ```html
-<!-- プライマリボタン -->
-<button class="bg-primary hover:bg-slate-800 text-white shadow-xl shadow-primary/20 h-14 px-8 text-lg rounded-md font-medium flex items-center justify-center gap-2 transition-all">
+<!-- プライマリボタン（外部リンク） -->
+<a href="[リンク先URL]" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-slate-800 text-white shadow-xl shadow-primary/20 h-14 px-8 text-lg rounded-md font-medium flex items-center justify-center gap-2 transition-all">
     [ボタンテキスト]
     <i data-lucide="arrow-right" class="w-5 h-5"></i>
-</button>
+</a>
 
 <!-- セカンダリボタン -->
-<button class="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 h-14 px-10 text-lg rounded-md font-medium transition-all">
+<a href="[リンク先URL]" class="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 h-14 px-10 text-lg rounded-md font-medium transition-all flex items-center justify-center">
     [ボタンテキスト]
-</button>
+</a>
 ```
 
 ### セクションヘッダー
@@ -394,6 +411,42 @@ document.addEventListener('DOMContentLoaded', () => {
     [グラデーションテキスト]
 </span>
 ```
+
+### ヒーローセクション背景画像
+
+```html
+<section class="relative pt-10 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-cover bg-center" style="background-image: url('images/[背景画像].jpg')">
+        <div class="absolute inset-0 bg-white/30"></div>  <!-- オーバーレイ（透明度調整可） -->
+    </div>
+
+    <div class="container mx-auto px-4 md:px-8">
+        <!-- コンテンツ -->
+    </div>
+</section>
+```
+
+---
+
+## 画像最適化
+
+Webサイトのパフォーマンス向上のため、画像は以下のように最適化してください。
+
+### macOSの場合（sipsコマンド）
+
+```bash
+# PNG → JPEG変換 + リサイズ + 圧縮（品質80%、横幅800px）
+sips -s format jpeg -s formatOptions 80 -Z 800 [元ファイル].png --out [出力ファイル].jpg
+```
+
+### 推奨サイズ
+
+| 用途 | 横幅 | 品質 | 形式 |
+|------|------|------|------|
+| ヒーロー背景 | 1920px | 70-80% | JPEG |
+| カード画像 | 800px | 80% | JPEG |
+| OG画像 | 1200px | 80% | JPEG |
+| ロゴ・アイコン | - | - | SVG/PNG |
 
 ---
 
