@@ -408,6 +408,113 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ---
 
+## SEO対策
+
+各HTMLファイルの`<head>`内に以下のSEOメタタグを追加してください。
+
+### 基本メタタグ（全ページ共通）
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ページタイトル]｜[サービス名] - [キャッチコピー]</title>
+    <meta name="description" content="[120文字程度のページ説明。ターゲットキーワードを自然に含める]">
+    <meta name="keywords" content="[キーワード1],[キーワード2],[キーワード3],...">
+    <meta name="author" content="[会社名]">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="[ページの正規URL]">
+
+    <!-- Open Graph / SNS共有用 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="[ページタイトル]｜[サービス名]">
+    <meta property="og:description" content="[SNS共有時の説明文]">
+    <meta property="og:url" content="[ページURL]">
+    <meta property="og:site_name" content="[サービス名]">
+    <meta property="og:image" content="[OG画像URL（1200x630px推奨）]">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[ページタイトル]｜[サービス名]">
+    <meta name="twitter:description" content="[Twitter共有時の説明文]">
+    <meta name="twitter:image" content="[OG画像URL]">
+
+    <!-- 以下、既存のscriptタグ等 -->
+</head>
+```
+
+### トップページ用 構造化データ（JSON-LD）
+
+```html
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "[サービス名]",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "[サービスの説明]",
+    "offers": {
+        "@type": "Offer",
+        "price": "[最低価格]",
+        "priceCurrency": "JPY"
+    },
+    "provider": {
+        "@type": "Organization",
+        "name": "[会社名]",
+        "url": "[会社URL]"
+    }
+}
+</script>
+```
+
+### 料金ページ用 構造化データ（JSON-LD）
+
+```html
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "[サービス名]",
+    "description": "[サービスの説明]",
+    "brand": {
+        "@type": "Brand",
+        "name": "[サービス名]"
+    },
+    "offers": [
+        {
+            "@type": "Offer",
+            "name": "[プラン名1]",
+            "price": "[価格]",
+            "priceCurrency": "JPY",
+            "priceValidUntil": "[有効期限 YYYY-MM-DD]"
+        },
+        {
+            "@type": "Offer",
+            "name": "[プラン名2]",
+            "price": "[価格]",
+            "priceCurrency": "JPY",
+            "priceValidUntil": "[有効期限 YYYY-MM-DD]"
+        }
+    ]
+}
+</script>
+```
+
+### SEOチェックリスト
+
+- [ ] 各ページに固有のtitleタグを設定（30〜60文字）
+- [ ] 各ページに固有のmeta descriptionを設定（80〜120文字）
+- [ ] ターゲットキーワードをtitle・descriptionに含める
+- [ ] canonical URLを正しく設定
+- [ ] OG画像（1200x630px）を用意し、images/og-image.jpg として配置
+- [ ] 構造化データをトップページ・料金ページに追加
+- [ ] 画像のalt属性を適切に設定
+- [ ] 見出しタグ（h1〜h6）を階層的に使用
+
+---
+
 ## 注意事項
 
 - 全ページで同じヘッダー・フッターを使用（変更時は全ファイル更新が必要）
